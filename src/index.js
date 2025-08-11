@@ -1,9 +1,6 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom';
-import { ConfigProvider } from 'antd';
-import zhCN from 'antd/es/locale/zh_CN';
-import App from './App.test';
+import App from './App.minimal';
 import './index.css';
 
 const container = document.getElementById('root');
@@ -11,10 +8,6 @@ const root = createRoot(container);
 
 root.render(
   <React.StrictMode>
-    <ConfigProvider locale={zhCN}>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </ConfigProvider>
+    <App />
   </React.StrictMode>
 );
