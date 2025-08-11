@@ -1,0 +1,205 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: #f0f2f5;
+}
+
+.mainContainer {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+.contentArea {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin-left: 256px;
+  transition: margin-left 0.3s ease;
+  overflow: hidden;
+}
+
+.contentArea.collapsed {
+  margin-left: 80px;
+}
+
+.pageContent {
+  flex: 1;
+  padding: 24px;
+  overflow: auto;
+  background: #f5f5f5;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.searchCard {
+  margin-bottom: 16px;
+  background: #fafafa;
+  border: 1px solid #e8e8e8;
+}
+
+.playerCard {
+  margin-bottom: 16px;
+  background: linear-gradient(135deg, #e3f2fd 0%, #f3e5f5 100%);
+  border: 1px solid #1890ff;
+  border-radius: 8px;
+}
+
+.playingInfo {
+  font-weight: 500;
+  color: #1890ff;
+  margin-bottom: 8px;
+}
+
+.contentCell {
+  max-width: 300px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.detailContent {
+  max-height: 700px;
+  overflow-y: auto;
+}
+
+.audioSection {
+  background: #f8faff;
+  border: 1px solid #d6e4ff;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.broadcastContent {
+  padding: 12px;
+  background: #f6ffed;
+  border: 1px solid #b7eb8f;
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+.processingSection {
+  background: #fafafa;
+  padding: 16px;
+  border-radius: 6px;
+  border: 1px dashed #d9d9d9;
+}
+
+/* 表格样式优化 */
+:global(.ant-table-thead > tr > th) {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  font-weight: 600;
+  border-bottom: 2px solid #1890ff;
+}
+
+:global(.ant-table-tbody > tr:hover > td) {
+  background: #e6f7ff !important;
+}
+
+/* 标签样式优化 */
+:global(.ant-tag) {
+  border-radius: 12px;
+  padding: 2px 8px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* 按钮样式优化 */
+:global(.ant-btn-primary) {
+  background: linear-gradient(135deg, #1890ff 0%, #722ed1 100%);
+  border: none;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(24, 144, 255, 0.3);
+}
+
+:global(.ant-btn-primary:hover) {
+  background: linear-gradient(135deg, #40a9ff 0%, #9254de 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(24, 144, 255, 0.4);
+}
+
+/* 进度条样式 */
+:global(.ant-progress-line) {
+  margin-bottom: 0;
+}
+
+:global(.ant-progress-bg) {
+  background: linear-gradient(135deg, #1890ff 0%, #722ed1 100%);
+}
+
+/* 模态框样式 */
+:global(.ant-modal-header) {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 8px 8px 0 0;
+}
+
+:global(.ant-modal-title) {
+  color: white;
+  font-weight: 600;
+}
+
+:global(.ant-modal-close) {
+  color: white;
+}
+
+:global(.ant-modal-close:hover) {
+  color: #f0f0f0;
+}
+
+/* 描述列表样式 */
+:global(.ant-descriptions-bordered .ant-descriptions-item-label) {
+  background: #fafafa;
+  font-weight: 600;
+  color: #262626;
+}
+
+:global(.ant-descriptions-bordered .ant-descriptions-item-content) {
+  background: white;
+}
+
+/* 卡片样式 */
+:global(.ant-card) {
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e8e8e8;
+}
+
+:global(.ant-card-head) {
+  background: #fafafa;
+  border-bottom: 2px solid #e8e8e8;
+}
+
+/* 响应式设计 */
+@media (max-width: 1200px) {
+  .container {
+    padding: 16px;
+  }
+  
+  .searchCard :global(.ant-col) {
+    margin-bottom: 8px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  
+  .contentCell {
+    max-width: 200px;
+  }
+  
+  :global(.ant-table-scroll) {
+    overflow-x: auto;
+  }
+} 

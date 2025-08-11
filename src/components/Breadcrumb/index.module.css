@@ -1,0 +1,55 @@
+.breadcrumbContainer {
+  padding: 16px 24px;
+  border-bottom: 1px solid #f0f0f0;
+  background: #fff;
+  margin: 0 -24px 0 -24px;
+}
+
+.breadcrumb {
+  font-size: 14px;
+}
+
+.breadcrumbItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #8c8c8c;
+  transition: color 0.3s;
+}
+
+.breadcrumbItem.clickable {
+  cursor: pointer;
+  color: #1890ff;
+}
+
+.breadcrumbItem.clickable:hover {
+  color: #40a9ff;
+}
+
+.breadcrumbItem:last-child {
+  color: #262626;
+  font-weight: 500;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .breadcrumbContainer {
+    padding: 12px 16px;
+    margin: 0 -16px 0 -16px;
+  }
+}
+
+@media (max-width: 767px) {
+  .breadcrumbContainer {
+    padding: 12px 12px;
+    margin: 0 -12px 0 -12px;
+  }
+  
+  .breadcrumb {
+    font-size: 13px;
+  }
+  
+  .breadcrumbItem {
+    gap: 4px;
+  }
+}

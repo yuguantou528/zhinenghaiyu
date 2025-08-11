@@ -1,0 +1,170 @@
+.audioPlayer {
+  background: linear-gradient(135deg, #f0f9ff 0%, #faf5ff 100%);
+  border: 1px solid #e0e7ff;
+  border-radius: 12px;
+  padding: 16px;
+  margin: 16px 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.playerControls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.playButton {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, #1890ff 0%, #722ed1 100%);
+  border: none;
+  box-shadow: 0 4px 12px rgba(24, 144, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.playButton:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 16px rgba(24, 144, 255, 0.4);
+}
+
+.playButton:active {
+  transform: scale(0.95);
+}
+
+.progressContainer {
+  flex: 1;
+  max-width: 400px;
+  margin: 0 24px;
+  position: relative;
+}
+
+.timeInfo {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 12px;
+}
+
+.progressBar {
+  margin-bottom: 8px;
+}
+
+.progressSlider {
+  position: absolute;
+  top: 28px;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  background: transparent;
+}
+
+.progressSlider :global(.ant-slider-rail) {
+  background: transparent;
+}
+
+.progressSlider :global(.ant-slider-track) {
+  background: transparent;
+}
+
+.progressSlider :global(.ant-slider-handle) {
+  width: 12px;
+  height: 12px;
+  border: 2px solid #1890ff;
+  background: white;
+  box-shadow: 0 2px 6px rgba(24, 144, 255, 0.3);
+}
+
+.volumeControl {
+  display: flex;
+  align-items: center;
+  color: #666;
+}
+
+.volumeControl :global(.ant-slider) {
+  margin: 0;
+}
+
+.volumeControl :global(.ant-slider-rail) {
+  background: #e8e8e8;
+}
+
+.volumeControl :global(.ant-slider-track) {
+  background: linear-gradient(135deg, #1890ff 0%, #722ed1 100%);
+}
+
+.volumeControl :global(.ant-slider-handle) {
+  border-color: #1890ff;
+}
+
+.waveform {
+  margin-top: 16px;
+  padding: 16px;
+  background: #fafafa;
+  border-radius: 8px;
+  border: 1px dashed #d9d9d9;
+}
+
+.waveformPlaceholder {
+  text-align: center;
+  padding: 20px;
+  color: #999;
+}
+
+/* 进度条样式覆盖 */
+:global(.ant-progress-line) {
+  margin: 0;
+}
+
+:global(.ant-progress-outer) {
+  padding-right: 0;
+}
+
+:global(.ant-progress-inner) {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+:global(.ant-progress-bg) {
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .playerControls {
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .progressContainer {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+  }
+  
+  .volumeControl {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .volumeControl :global(.ant-slider) {
+    width: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .audioPlayer {
+    padding: 12px;
+  }
+  
+  .playButton {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .timeInfo {
+    font-size: 11px;
+  }
+} 

@@ -1,0 +1,2345 @@
+.dashboardLayout {
+  min-height: 100vh;
+  background-color: #f5f5f5;
+}
+
+/* 主内容区布局 */
+.mainLayout {
+  margin-left: 256px;
+  margin-top: 64px;
+  transition: margin-left 0.2s ease;
+  min-height: calc(100vh - 64px);
+}
+
+.mainLayout.collapsed {
+  margin-left: 80px;
+}
+
+.contentInner {
+  padding: 0 24px 24px 24px;
+  /* 重要：不设置max-width，充分利用空间 */
+}
+
+/* 仪表板内容样式 */
+.dashboardContent {
+  padding-top: 24px;
+}
+
+.statsRow {
+  margin-bottom: 24px;
+}
+
+.statCard {
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  border: none;
+  transition: box-shadow 0.3s;
+}
+
+.statCard:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.statContent {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.statIcon {
+  font-size: 32px;
+}
+
+/* 物资管理操作按钮样式 */
+.suppliesActionBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+  font-weight: 400;
+}
+
+.suppliesActionBtn:hover {
+  background-color: rgba(24, 144, 255, 0.06);
+  border-color: rgba(24, 144, 255, 0.2);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.suppliesActionBtn:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* 不同类型按钮的hover效果 */
+.suppliesActionBtn.view:hover {
+  background-color: rgba(24, 144, 255, 0.06);
+  border-color: rgba(24, 144, 255, 0.2);
+  color: #1890ff !important;
+}
+
+.suppliesActionBtn.edit:hover {
+  background-color: rgba(82, 196, 26, 0.06);
+  border-color: rgba(82, 196, 26, 0.2);
+  color: #52c41a !important;
+}
+
+.suppliesActionBtn.out:hover {
+  background-color: rgba(250, 140, 22, 0.06);
+  border-color: rgba(250, 140, 22, 0.2);
+  color: #fa8c16 !important;
+}
+
+.suppliesActionBtn.in:hover {
+  background-color: rgba(82, 196, 26, 0.06);
+  border-color: rgba(82, 196, 26, 0.2);
+  color: #52c41a !important;
+}
+
+.suppliesActionBtn.warning:hover {
+  background-color: rgba(255, 77, 79, 0.06);
+  border-color: rgba(255, 77, 79, 0.2);
+  color: #ff4d4f !important;
+}
+
+/* 统计报表样式 */
+.statisticsModal {
+  z-index: 1000 !important;
+}
+
+.statisticsModal .ant-modal {
+  top: 80px !important;
+  padding-bottom: 0;
+}
+
+.statisticsModal .ant-modal-content {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.statisticsModal .ant-modal-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-bottom: none;
+  padding: 20px 24px;
+  margin: 0;
+}
+
+.statisticsModal .ant-modal-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #ffffff !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.statisticsModal .ant-modal-close {
+  color: #ffffff;
+  top: 20px;
+  right: 24px;
+}
+
+.statisticsModal .ant-modal-close:hover {
+  color: #f0f0f0;
+}
+
+.statisticsModal .ant-modal-body {
+  padding: 24px;
+  max-height: 75vh;
+  overflow-y: auto;
+  background-color: #fafafa;
+}
+
+.statisticsCard {
+  transition: all 0.3s ease;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #f0f0f0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  height: 100% !important;
+  min-height: 120px;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.statisticsCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  border-color: #1890ff;
+}
+
+.statisticsCard .ant-card-body {
+  padding: 20px 16px !important;
+  flex: 1 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  text-align: center !important;
+}
+
+.statisticsCard .ant-statistic {
+  width: 100%;
+}
+
+.statisticsCard .ant-statistic-title {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.statisticsCard .ant-statistic-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.statisticsCard .ant-statistic-content-value {
+  font-size: 24px !important;
+  font-weight: bold;
+  line-height: 1.2;
+}
+
+.statisticsCard .ant-statistic-content-suffix {
+  font-size: 16px !important;
+  margin-left: 4px;
+}
+
+/* 确保所有行的卡片高度一致 */
+.statisticsModal .ant-row {
+  display: flex;
+  align-items: stretch;
+}
+
+.statisticsModal .ant-row .ant-col {
+  display: flex;
+  margin-bottom: 16px;
+}
+
+.statisticsModal .ant-row .ant-col > .ant-card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.statisticsModal .ant-card-body {
+  flex: 1 !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+/* 强制所有统计卡片保持相同高度 */
+.statisticsModal .ant-row[style*="alignItems: stretch"] .ant-col {
+  height: auto !important;
+}
+
+.statisticsModal .ant-row[style*="alignItems: stretch"] .ant-col .ant-card {
+  height: 100% !important;
+  min-height: 120px !important;
+}
+
+/* 确保大卡片也能对齐 */
+.statisticsModal .ant-card:not(.statisticsCard) {
+  height: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.statisticsModal .ant-card:not(.statisticsCard) .ant-card-body {
+  flex: 1 !important;
+}
+
+/* 响应式设计 */
+@media (max-width: 1200px) {
+  .statisticsModal {
+    width: 95% !important;
+    max-width: 1200px;
+  }
+
+  .statisticsModal .ant-modal-body {
+    padding: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .statisticsModal {
+    width: 100% !important;
+    margin: 0;
+    top: 0 !important;
+    height: 100vh;
+  }
+
+  .statisticsModal .ant-modal-content {
+    height: 100vh;
+    border-radius: 0;
+  }
+
+  .statisticsModal .ant-modal-body {
+    height: calc(100vh - 110px);
+    padding: 12px;
+  }
+
+  .statisticsCard .ant-card-body {
+    padding: 12px;
+  }
+
+  .statisticsCard .ant-statistic-content-value {
+    font-size: 20px !important;
+  }
+}
+
+/* Tab页面样式优化 */
+.statisticsModal .ant-tabs-content-holder {
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 16px;
+  margin-top: 8px;
+}
+
+.statisticsModal .ant-tabs-tab {
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.statisticsModal .ant-tabs-tab-active {
+  font-weight: bold;
+}
+
+.gradientCard {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+}
+
+.gradientCard .ant-statistic-title {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.gradientCard .ant-statistic-content {
+  color: white !important;
+}
+
+.chartContainer {
+  padding: 16px;
+  background: #fafafa;
+  border-radius: 6px;
+  margin: 8px 0;
+}
+
+.exportSection {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  padding: 20px;
+  border-radius: 8px;
+  margin: 16px 0;
+}
+
+.exportButton {
+  transition: all 0.3s ease;
+  border-radius: 6px;
+}
+
+.exportButton:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.statIconWrapper {
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(24, 144, 255, 0.1);
+  border-radius: 50%;
+}
+
+.statInfo {
+  flex: 1;
+}
+
+.statValue {
+  font-size: 24px;
+  font-weight: 600;
+  color: #262626;
+  line-height: 1.2;
+}
+
+.statTitle {
+  font-size: 14px;
+  color: #8c8c8c;
+  margin-top: 4px;
+}
+
+.chartsRow {
+  margin-bottom: 24px;
+}
+
+.chartCard {
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  border: none;
+  /* 移除固定高度，让JavaScript中的bodyStyle生效 */
+  overflow: hidden; /* 确保内容不会溢出卡片边框 */
+}
+
+.chartPlaceholder {
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #fafafa;
+  border-radius: 6px;
+  color: #8c8c8c;
+}
+
+/* 表格内容样式 */
+.tableContent {
+  padding-top: 24px;
+}
+
+.tableHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.tableHeader h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #262626;
+}
+
+.placeholder {
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fafafa;
+  border-radius: 6px;
+  color: #8c8c8c;
+  font-size: 16px;
+}
+
+/* 响应式设计 */
+@media (max-width: 1599px) {
+  /* 中等屏幕时保持两栏布局 */
+  .configCard {
+    margin-bottom: 24px;
+  }
+}
+
+@media (max-width: 1023px) {
+  .mainLayout {
+    margin-left: 240px;
+  }
+  
+  .mainLayout.collapsed {
+    margin-left: 64px;
+  }
+  
+  .contentInner {
+    padding: 0 16px 16px 16px;
+  }
+  
+  .statIcon {
+    font-size: 28px;
+    width: 56px;
+    height: 56px;
+  }
+  
+  .statValue {
+    font-size: 20px;
+  }
+  
+  .chartCard {
+    /* 移除移动端固定高度，让JavaScript中的bodyStyle生效 */
+    height: auto;
+  }
+  
+  .chartPlaceholder {
+    height: 150px;
+  }
+  
+  /* 配置卡片在中等屏幕时的样式调整 */
+  .configCard {
+    height: auto;
+    margin-bottom: 16px;
+  }
+}
+
+@media (max-width: 767px) {
+  .mainLayout {
+    margin-left: 0;
+    padding-top: 64px;
+  }
+  
+  .mainLayout.collapsed {
+    margin-left: 0;
+  }
+  
+  .contentInner {
+    padding: 0 12px 12px 12px;
+  }
+  
+  .tableHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  
+  .statContent {
+    gap: 12px;
+  }
+  
+  .statIcon {
+    font-size: 24px;
+    width: 48px;
+    height: 48px;
+  }
+  
+  .statValue {
+    font-size: 18px;
+  }
+  
+  .statTitle {
+    font-size: 13px;
+  }
+}
+
+/* CCTV 监控相关样式 */
+.monitorDisplay {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  flex: 1; /* 确保占满父容器 */
+}
+
+.videoContainer {
+  position: relative;
+  width: 100%;
+  height: 600px; /* 调整为更合理的高度，避免溢出问题 */
+  min-height: 500px; /* 调整最小高度，确保视频区域占主导但不溢出 */
+  background: #000;
+  border-radius: 6px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.videoPlaceholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%; /* 确保占位符完全填满容器 */
+  color: #fff;
+  background: #000; /* 改为纯黑色背景，与视频容器保持一致 */
+}
+
+.videoPlaceholder p {
+  margin: 4px 0;
+  color: #fff;
+  font-size: 14px;
+}
+
+.ptzControls {
+  margin-top: 4px; /* 减少顶部间距 */
+  padding: 4px; /* 大幅减少内边距 */
+  background: #fafafa;
+  border-radius: 6px;
+  flex: 1;
+  overflow-y: auto;
+  max-height: 240px; /* 进一步大幅减少控制面板最大高度 */
+  min-height: 160px; /* 进一步减少最小高度 */
+}
+
+.directionControls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px; /* 大幅减少间距 */
+}
+
+.controlRow {
+  display: flex;
+  gap: 2px; /* 大幅减少间距 */
+  align-items: center;
+}
+
+.controlRow button {
+  width: 28px; /* 减少按钮尺寸 */
+  height: 28px; /* 减少按钮尺寸 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px; /* 减少字体大小 */
+}
+
+.zoomControls {
+  display: flex;
+  flex-direction: column;
+  gap: 2px; /* 大幅减少间距 */
+}
+
+.zoomControls button {
+  height: 26px; /* 减少按钮高度 */
+  font-size: 11px; /* 减少字体大小 */
+}
+
+.deviceList {
+  height: calc(100% - 80px); /* 减去统计概览的高度 */
+  min-height: 700px; /* 适当调整最小高度，显示合适数量的设备信息 */
+  overflow-y: auto;
+  padding-right: 4px;
+  flex: 1; /* 确保占满剩余空间 */
+}
+
+.deviceItem {
+  padding: 12px 14px;
+  border: 1px solid #f0f0f0;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  transition: all 0.3s;
+  background: #fff;
+  min-height: 80px;
+}
+
+.deviceItem:hover {
+  border-color: #1890ff;
+  box-shadow: 0 2px 8px rgba(24, 144, 255, 0.1);
+}
+
+.deviceItem.selected {
+  border-color: #1890ff;
+  background: #e6f7ff;
+}
+
+.deviceInfo {
+  width: 100%;
+}
+
+.deviceHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.deviceName {
+  font-weight: 500;
+  color: #262626;
+  font-size: 13px;
+  line-height: 1.2;
+}
+
+.deviceLocation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  color: #8c8c8c;
+  margin-bottom: 6px;
+}
+
+.deviceId {
+  font-size: 11px;
+  color: #bfbfbf;
+}
+
+/* 自动跟踪配置样式 */
+.configCard {
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  border: none;
+  height: 100%;
+}
+
+.priorityConfig {
+  padding: 16px 0;
+}
+
+.priorityDescription {
+  color: #8c8c8c;
+  margin-bottom: 16px;
+  font-size: 14px;
+}
+
+.priorityList {
+  margin-bottom: 24px;
+}
+
+.priorityItem {
+  display: flex;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #f0f0f0;
+  gap: 12px;
+}
+
+.priorityItem:last-child {
+  border-bottom: none;
+}
+
+.priorityRank {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #1890ff;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  margin-right: 16px;
+  flex-shrink: 0;
+}
+
+.priorityInfo {
+  flex: 1;
+}
+
+.priorityTitle {
+  font-weight: 500;
+  color: #262626;
+  margin-bottom: 4px;
+}
+
+.priorityDesc {
+  font-size: 12px;
+  color: #8c8c8c;
+}
+
+.priorityActions {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  margin-right: 8px;
+}
+
+.priorityActions .ant-btn {
+  border: none;
+  box-shadow: none;
+  padding: 2px 4px;
+  height: 24px;
+  width: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.priorityActions .ant-btn:hover {
+  background-color: #f0f0f0;
+}
+
+/* 航线管理样式 */
+.routeList {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.routeItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  border: 1px solid #f0f0f0;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  background: #fafafa;
+}
+
+.routeInfo {
+  flex: 1;
+}
+
+.routeName {
+  font-weight: 500;
+  color: #262626;
+  margin-bottom: 4px;
+}
+
+.routeDetails {
+  font-size: 12px;
+  color: #8c8c8c;
+}
+
+.routeActions {
+  display: flex;
+  gap: 8px;
+}
+
+/* 统计项样式 */
+.statItem {
+  text-align: center;
+  padding: 16px;
+  background: #fafafa;
+  border-radius: 6px;
+}
+
+.statValue {
+  font-size: 24px;
+  font-weight: 600;
+  color: #1890ff;
+  margin-bottom: 4px;
+}
+
+.statLabel {
+  font-size: 12px;
+  color: #8c8c8c;
+}
+
+/* 围栏管理样式 */
+.fenceListHeader {
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.fenceList {
+  max-height: 350px;
+  overflow-y: auto;
+  margin-bottom: 16px;
+}
+
+.fenceItem {
+  padding: 12px;
+  border: 1px solid #f0f0f0;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  background: #fafafa;
+  transition: all 0.3s;
+}
+
+.fenceItem:hover {
+  border-color: #1890ff;
+  background: #f6ffed;
+}
+
+.fenceInfo {
+  margin-bottom: 8px;
+}
+
+.fenceName {
+  font-weight: 500;
+  color: #262626;
+  margin-bottom: 4px;
+  font-size: 14px;
+}
+
+.fenceDetails {
+  font-size: 11px;
+  color: #8c8c8c;
+  margin-bottom: 4px;
+}
+
+.fenceStatus {
+  margin-bottom: 8px;
+}
+
+.fenceActions {
+  display: flex;
+  gap: 4px;
+  justify-content: flex-end;
+}
+
+.fenceStats {
+  padding-top: 12px;
+  border-top: 1px solid #f0f0f0;
+}
+
+/* 迷你统计项样式 */
+.miniStatItem {
+  text-align: center;
+  padding: 8px;
+  background: #f9f9f9;
+  border-radius: 4px;
+}
+
+.miniStatValue {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1890ff;
+  margin-bottom: 2px;
+}
+
+.miniStatLabel {
+  font-size: 10px;
+  color: #8c8c8c;
+}
+
+/* VHF播发设置样式 */
+.variableHelp {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 8px;
+}
+
+/* CCTV联动规则样式 */
+.linkageCard {
+  transition: all 0.3s;
+}
+
+.linkageCard:hover {
+  border-color: #1890ff;
+}
+
+.linkageStatus {
+  margin-top: 12px;
+  padding: 8px;
+  background: #f0f0f0;
+  border-radius: 4px;
+  font-size: 12px;
+  color: #666;
+  text-align: center;
+}
+
+.deviceStatusList {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.deviceStatusItem {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  border: 1px solid #f0f0f0;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  background: #fafafa;
+}
+
+.deviceStatusInfo {
+  flex: 1;
+}
+
+.deviceStatusName {
+  font-weight: 500;
+  color: #262626;
+  margin-bottom: 2px;
+}
+
+.deviceStatusId {
+  font-size: 11px;
+  color: #8c8c8c;
+}
+
+.deviceStatusMiddle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 16px;
+}
+
+.linkageInfo {
+  font-size: 12px;
+  color: #666;
+}
+
+.deviceStatusActions {
+  display: flex;
+  gap: 4px;
+}
+
+/* 通知设置样式 */
+.notificationDesc {
+  font-size: 12px;
+  color: #8c8c8c;
+  margin-top: 4px;
+}
+
+.levelDesc {
+  font-size: 11px;
+  color: #999;
+  margin-top: 4px;
+  font-style: italic;
+}
+
+.notificationPreview {
+  padding: 16px;
+  background: #f9f9f9;
+  border-radius: 6px;
+}
+
+.notificationPreview h4 {
+  margin-bottom: 12px;
+  color: #262626;
+}
+
+.previewGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+.previewItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.previewItem:hover {
+  border-color: #1890ff;
+  background: #f0f9ff;
+}
+
+.previewIcon {
+  font-size: 24px;
+  margin-bottom: 4px;
+}
+
+.previewLabel {
+  font-size: 12px;
+  color: #666;
+}
+
+/* 上传区域样式 */
+.uploadArea {
+  padding: 16px;
+}
+
+/* 快速统计样式 */
+.quickStats {
+  margin-top: 16px;
+}
+
+.prioritySettings {
+  background: #fafafa;
+  padding: 16px;
+  border-radius: 6px;
+  margin-top: 8px;
+}
+
+.prioritySettings h4 {
+  margin-bottom: 16px;
+  color: #262626;
+}
+
+.configPreview {
+  background: #f9f9f9;
+  padding: 12px;
+  border-radius: 6px;
+}
+
+.previewItem {
+  text-align: center;
+  padding: 8px;
+  background: #fff;
+  border-radius: 6px;
+  border: 1px solid #f0f0f0;
+  height: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.previewLabel {
+  font-size: 11px;
+  color: #8c8c8c;
+  margin-bottom: 2px;
+  line-height: 1.2;
+}
+
+.previewValue {
+  font-size: 14px;
+  font-weight: 500;
+  color: #262626;
+  line-height: 1.2;
+}
+
+/* 录像管理样式 */
+.searchCard {
+  margin-bottom: 16px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  border: none;
+}
+
+.playbackContainer {
+  padding: 16px 0;
+}
+
+.videoPlayer {
+  margin-bottom: 16px;
+}
+
+.videoPlaceholder {
+  height: 300px;
+  background: #000;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+.videoPlaceholder p {
+  margin: 8px 0;
+  color: #fff;
+}
+
+.playbackControls {
+  margin-bottom: 16px;
+  padding: 12px;
+  background: #fafafa;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.recordInfo {
+  padding: 12px;
+  background: #f9f9f9;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.recordInfo strong {
+  color: #262626;
+}
+
+/* 响应式优化 */
+@media (max-width: 1200px) {
+  .videoContainer {
+    height: 350px; /* 中等屏幕下适当增加视频容器高度 */
+  }
+
+  .ptzControls {
+    padding: 4px; /* 进一步减少内边距，节省空间 */
+    max-height: 120px; /* 大幅减少控制面板高度，为视频让出更多空间 */
+  }
+
+  .deviceList {
+    max-height: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .videoContainer {
+    height: 280px; /* 移动端适当增加视频容器高度 */
+  }
+
+  .ptzControls {
+    padding: 3px; /* 进一步减少内边距 */
+    max-height: 100px; /* 大幅减少控制面板高度，突出视频显示 */
+  }
+
+  .controlRow button {
+    width: 30px; /* 稍微减少按钮尺寸，节省空间 */
+    height: 30px;
+    font-size: 10px;
+  }
+
+  .zoomControls button {
+    height: 28px;
+    font-size: 11px;
+  }
+
+  .deviceItem {
+    padding: 6px 8px;
+    margin-bottom: 4px;
+  }
+
+  .deviceName {
+    font-size: 12px;
+  }
+
+  .deviceLocation {
+    font-size: 10px;
+  }
+
+  .deviceId {
+    font-size: 9px;
+  }
+
+  .priorityItem {
+    padding: 8px 0;
+  }
+
+  .priorityRank {
+    width: 28px;
+    height: 28px;
+    margin-right: 12px;
+  }
+
+  .configPreview {
+    padding: 12px;
+  }
+
+  .previewItem {
+    padding: 8px;
+  }
+
+  .monitorDisplay {
+    min-height: 200px;
+    max-height: 400px;
+  }
+
+  .deviceList {
+    min-height: 200px; /* 移动端设置较小的最小高度 */
+    height: auto; /* 移动端允许自动高度 */
+  }
+}
+
+/* 重构后的CCTV监控增强样式 */
+.multiViewContainer {
+  height: 100%;
+  min-height: 700px; /* 适当调整最小高度，保持合适的多画面显示 */
+  padding: 8px;
+  background: #f0f2f5;
+  border-radius: 8px;
+}
+
+.multiViewItem {
+  height: 100%;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 2px solid #d9d9d9;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.multiViewItem:hover {
+  border-color: #1890ff;
+  box-shadow: 0 2px 8px rgba(24, 144, 255, 0.2);
+}
+
+.multiViewActions {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  display: flex;
+  gap: 4px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.multiViewItem:hover .multiViewActions {
+  opacity: 1;
+}
+
+.emptyViewSlot {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #fafafa;
+  color: #999;
+  border: 2px dashed #d9d9d9;
+  border-radius: 6px;
+}
+
+/* 增强的设备项样式 */
+.deviceItem::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 4px;
+  background: transparent;
+  transition: background 0.3s ease;
+}
+
+.deviceItem.selected::before {
+  background: #1890ff;
+}
+
+.deviceItem:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(24, 144, 255, 0.15);
+}
+
+.deviceItem.selected {
+  background: linear-gradient(135deg, #f0f8ff 0%, #e6f7ff 100%);
+  box-shadow: 0 4px 12px rgba(24, 144, 255, 0.2);
+}
+
+/* 增强的云台控制样式 */
+.ptzControls {
+  background: linear-gradient(135deg, #f6f8fa 0%, #e9ecef 100%);
+  border: 1px solid #e1e5e9;
+}
+
+/* 视频容器增强样式 */
+.videoContainer {
+  background: #000; /* 保持纯黑色背景，符合视频监控的专业外观 */
+  min-height: 450px; /* 更新最小高度以匹配新的默认高度 */
+}
+
+/* 大屏幕优化 - 1920×1080及以上分辨率 */
+@media (min-width: 1920px) {
+  .videoContainer {
+    height: 700px; /* 大屏幕下适当增加视频容器高度，但避免溢出 */
+    min-height: 600px;
+  }
+
+  .ptzControls {
+    max-height: 280px; /* 大屏幕下进一步压缩控制面板高度 */
+    min-height: 180px; /* 减少最小高度，保持紧凑布局 */
+  }
+
+  .deviceList {
+    min-height: 800px; /* 大屏幕下适当增加设备列表最小高度 */
+  }
+
+  .deviceItem {
+    min-height: 100px; /* 大屏幕下增加设备项高度 */
+    padding: 16px 18px; /* 增加内边距 */
+  }
+
+  .deviceName {
+    font-size: 15px; /* 大屏幕下增加字体大小 */
+  }
+
+  .multiViewContainer {
+    min-height: 800px; /* 大屏幕下适当增加多画面容器高度 */
+  }
+}
+
+/* 超大屏幕优化 - 2560×1440及以上分辨率 */
+@media (min-width: 2560px) {
+  .videoContainer {
+    height: 800px; /* 超大屏幕下适当增加视频容器高度，但保持合理范围 */
+    min-height: 700px;
+  }
+
+  .ptzControls {
+    max-height: 320px; /* 超大屏幕下严格控制面板高度 */
+    min-height: 200px; /* 保持紧凑，为视频区域让出更多空间 */
+  }
+
+  .deviceList {
+    min-height: 950px; /* 超大屏幕下适当增加设备列表最小高度 */
+  }
+
+  .deviceItem {
+    min-height: 110px; /* 超大屏幕下增加设备项高度 */
+    padding: 18px 20px; /* 增加内边距 */
+  }
+
+  .deviceName {
+    font-size: 16px; /* 超大屏幕下增加字体大小 */
+  }
+
+  .multiViewContainer {
+    min-height: 950px; /* 超大屏幕下适当增加多画面容器高度 */
+  }
+}
+
+.videoPlaceholder h4 {
+  color: #fff;
+  margin-bottom: 16px;
+}
+
+/* 围栏告警设置重构样式 */
+.fenceDrawingArea {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: 2px dashed rgba(255,255,255,0.3);
+  border-radius: 8px;
+  color: #fff;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.fenceDrawingArea:hover {
+  border-color: rgba(255,255,255,0.5);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.drawingModeActive {
+  border-color: #52c41a !important;
+  box-shadow: 0 0 0 2px rgba(82, 196, 26, 0.2);
+}
+
+.fenceListItem {
+  transition: all 0.3s ease;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.fenceListItem:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(24, 144, 255, 0.15);
+}
+
+.fenceStatsCard {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  border-radius: 6px;
+  padding: 12px;
+  margin-bottom: 16px;
+}
+
+.drawingToolButton {
+  transition: all 0.3s ease;
+}
+
+.drawingToolButton:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(24, 144, 255, 0.2);
+}
+
+.drawingToolButton.active {
+  background: #1890ff;
+  color: #fff;
+  border-color: #1890ff;
+}
+
+.fenceConfigModal .ant-modal-header {
+  background: linear-gradient(135deg, #f0f8ff 0%, #e6f7ff 100%);
+  border-bottom: 1px solid #e1f5fe;
+}
+
+.fenceTypeTag {
+  font-weight: 500;
+  border-radius: 4px;
+}
+
+.alertLevelHigh {
+  background: #fff2f0;
+  border-color: #ffccc7;
+  color: #a8071a;
+}
+
+.alertLevelMedium {
+  background: #fffbe6;
+  border-color: #ffe58f;
+  color: #ad6800;
+}
+
+.alertLevelLow {
+  background: #f6ffed;
+  border-color: #b7eb8f;
+  color: #389e0d;
+}
+
+/* 重构后的围栏管理页面样式 */
+.fenceManagementGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;
+  padding: 8px;
+}
+
+.fenceCardItem {
+  transition: all 0.3s ease;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+}
+
+.fenceCardItem:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(24, 144, 255, 0.2);
+}
+
+.fenceCardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.fenceCardTitle {
+  font-weight: 600;
+  font-size: 16px;
+  color: #262626;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.fenceCardContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.fenceInfoRow {
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+  color: #666;
+  line-height: 20px;
+}
+
+.fenceCardActions {
+  display: flex;
+  gap: 4px;
+  margin-top: 12px;
+  padding-top: 8px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.fenceStatsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.fenceStatCard {
+  text-align: center;
+  padding: 16px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: 8px;
+  border: 1px solid #e1e5e9;
+  transition: all 0.3s ease;
+}
+
+.fenceStatCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.fenceStatValue {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.fenceStatLabel {
+  font-size: 14px;
+  color: #666;
+}
+
+/* 查询筛选条件样式 */
+.queryFiltersCard {
+  margin-bottom: 16px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.queryFiltersCard .ant-card-head {
+  background: linear-gradient(135deg, #f0f8ff 0%, #e6f7ff 100%);
+  border-bottom: 1px solid #e1f5fe;
+}
+
+/* 新增围栏模态框样式 */
+.createFenceModal {
+  /* 确保模态框在最顶层 */
+  z-index: 1500 !important;
+}
+
+.createFenceModal .ant-modal-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
+  border-bottom: none;
+  border-radius: 8px 8px 0 0;
+}
+
+.createFenceModal .ant-modal-title {
+  color: #fff;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.createFenceModal .ant-modal-close {
+  color: #fff;
+}
+
+.createFenceModal .ant-modal-close:hover {
+  color: #f0f0f0;
+}
+
+.createFenceModal .ant-modal-content {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.mapDrawingArea {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 8px;
+  color: #fff;
+  position: relative;
+  transition: all 0.3s ease;
+  min-height: 450px;
+}
+
+.mapDrawingArea.active {
+  border: 2px solid #52c41a;
+  box-shadow: 0 0 0 4px rgba(82, 196, 26, 0.2);
+}
+
+.drawingInstructions {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+}
+
+.configPreviewPanel {
+  background: #f9f9f9;
+  padding: 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  line-height: 20px;
+  border: 1px solid #e8e8e8;
+}
+
+.configPreviewPanel div {
+  margin-bottom: 4px;
+}
+
+.configPreviewPanel div:last-child {
+  margin-bottom: 0;
+}
+
+/* 告警通知设置样式 */
+.alertConfigCard {
+  border: 1px solid #f0f0f0;
+  border-radius: 8px;
+  transition: all 0.3s;
+}
+
+.alertConfigCard:hover {
+  border-color: #1890ff;
+  box-shadow: 0 2px 8px rgba(24, 144, 255, 0.1);
+}
+
+.notificationGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.notificationItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  background: #fafafa;
+  border-radius: 6px;
+  border: 1px solid #f0f0f0;
+  transition: all 0.3s;
+}
+
+.notificationItem:hover {
+  background: #f0f9ff;
+  border-color: #d1ecf1;
+}
+
+.notificationLabel {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .notificationGrid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .notificationItem {
+    padding: 6px 8px;
+  }
+
+  .alertConfigCard {
+    margin-bottom: 16px;
+  }
+}
+
+/* VHF播报台账样式 */
+.vhfPlaybackContainer {
+  .recordInfo {
+    margin-bottom: 16px;
+  }
+  
+  .audioPlayer {
+    text-align: center;
+    
+    .audioControls {
+      margin-top: 16px;
+    }
+  }
+}
+
+.vhfDetailContainer {
+  .detailItem {
+    margin-bottom: 12px;
+    
+    .detailLabel {
+      font-size: 12px;
+      color: #8c8c8c;
+      margin-bottom: 4px;
+    }
+    
+    .detailValue {
+      font-size: 14px;
+      color: #262626;
+      font-weight: 500;
+    }
+  }
+}
+
+/* 救援资源管理样式 */
+.critical-row {
+  background-color: #fff2f0 !important;
+  border-left: 3px solid #ff4d4f;
+}
+
+.warning-row {
+  background-color: #fffbe6 !important;
+  border-left: 3px solid #faad14;
+}
+
+.critical-row:hover {
+  background-color: #ffece6 !important;
+}
+
+.warning-row:hover {
+  background-color: #fff7e6 !important;
+}
+
+/* 弹窗层级样式 */
+.teamModal {
+  z-index: 1010 !important;
+}
+
+.memberModal {
+  z-index: 1020 !important;
+}
+
+.trainingModal {
+  z-index: 2000 !important;
+}
+
+/* 确保弹窗遮罩层级正确 */
+.ant-modal-mask {
+  z-index: 1000 !important;
+}
+
+.teamModal .ant-modal-mask {
+  z-index: 1009 !important;
+}
+
+.memberModal .ant-modal-mask {
+  z-index: 1019 !important;
+}
+
+.trainingModal .ant-modal-mask {
+  z-index: 1999 !important;
+}
+
+/* 确保培训弹窗内容在最上层 */
+.trainingModal .ant-modal-wrap {
+  z-index: 2000 !important;
+}
+
+.trainingModal .ant-modal {
+  z-index: 2001 !important;
+}
+
+/* 新增队伍弹窗优化样式 */
+.teamFormContainer {
+  max-height: 70vh;
+  overflow-y: auto;
+  padding: 8px 16px 8px 8px;
+  background-color: #ffffff;
+}
+
+.teamFormContainer::-webkit-scrollbar {
+  width: 6px;
+}
+
+.teamFormContainer::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.teamFormContainer::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+.teamFormContainer::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+.formSection {
+  margin-bottom: 32px;
+  padding: 24px;
+  border-radius: 8px;
+  border: 1px solid #f0f0f0;
+  transition: all 0.3s ease;
+  background-color: #fafafa;
+}
+
+.formSection:hover {
+  border-color: #d9d9d9;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.sectionTitle {
+  margin-bottom: 20px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #262626;
+  border-bottom: 1px solid #e8e8e8;
+  padding-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.basicInfoSection {
+  /* 移除背景色，保持简洁的白色背景 */
+  border-color: #f0f0f0;
+}
+
+.basicInfoSection {
+  /* 移除背景色，保持简洁的白色背景 */
+  border-color: #f0f0f0;
+}
+
+.locationSection {
+  /* 移除背景色，保持简洁的白色背景 */
+  border-color: #f0f0f0;
+}
+
+.skillsSection {
+  /* 移除背景色，保持简洁的白色背景 */
+  border-color: #f0f0f0;
+}
+
+.formFieldLabel {
+  font-weight: 500;
+  color: #262626;
+  margin-bottom: 6px;
+  font-size: 14px;
+}
+
+.requiredMark {
+  color: #ff4d4f;
+  margin-left: 2px;
+  font-weight: 600;
+}
+
+.formInput {
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.formInput:hover {
+  border-color: #40a9ff;
+}
+
+.formInput:focus {
+  border-color: #40a9ff;
+  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+}
+
+.coordinateInput {
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  border-radius: 6px;
+}
+
+.defaultCoordButton {
+  border-radius: 6px;
+  height: 40px;
+  transition: all 0.3s ease;
+}
+
+.defaultCoordButton:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(24, 144, 255, 0.2);
+}
+
+.mapContainer {
+  margin-top: 12px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e8e8e8;
+}
+
+.multiSelectField {
+  border-radius: 6px;
+}
+
+.multiSelectField .ant-select-selector {
+  border-radius: 6px;
+}
+
+.statusRadioGroup {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.statusRadioGroup .ant-radio-button-wrapper {
+  border-radius: 6px;
+  flex: 1;
+  text-align: center;
+  min-width: 100px;
+  transition: all 0.3s ease;
+  border: 1px solid #d9d9d9;
+}
+
+.statusRadioGroup .ant-radio-button-wrapper:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-color: #40a9ff;
+}
+
+.statusRadioGroup .ant-radio-button-wrapper-checked {
+  background: #1890ff;
+  border-color: #1890ff;
+  color: #fff;
+}
+
+.statusRadioGroup .ant-radio-button-wrapper-checked:hover {
+  background: #40a9ff;
+  border-color: #40a9ff;
+}
+
+.modalFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+}
+
+.footerTip {
+  color: #666;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.footerButtons {
+  display: flex;
+  gap: 12px;
+}
+
+.cancelButton {
+  border-radius: 6px;
+  min-width: 80px;
+  transition: all 0.3s ease;
+}
+
+.submitButton {
+  border-radius: 6px;
+  min-width: 100px;
+  background: linear-gradient(135deg, #1890ff 0%, #096dd9 100%);
+  border: none;
+  box-shadow: 0 2px 8px rgba(24, 144, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.submitButton:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(24, 144, 255, 0.4);
+}
+
+.editButton {
+  border-radius: 6px;
+  min-width: 100px;
+  background: linear-gradient(135deg, #52c41a 0%, #389e0d 100%);
+  border: none;
+  box-shadow: 0 2px 8px rgba(82, 196, 26, 0.3);
+  transition: all 0.3s ease;
+}
+
+.editButton:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(82, 196, 26, 0.4);
+}
+
+/* 物资管理样式 */
+.suppliesContainer {
+  padding: 16px;
+}
+
+.suppliesHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.suppliesFilters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+.suppliesActions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.stockStatusTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.stockStatusNormal {
+  background-color: #f6ffed;
+  color: #52c41a;
+  border: 1px solid #b7eb8f;
+}
+
+.stockStatusLow {
+  background-color: #fff7e6;
+  color: #fa8c16;
+  border: 1px solid #ffd591;
+}
+
+.stockStatusCritical {
+  background-color: #fff2f0;
+  color: #ff4d4f;
+  border: 1px solid #ffccc7;
+}
+
+.stockOperationModal .ant-modal-body {
+  padding: 20px;
+}
+
+.stockInfoCard {
+  background-color: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.stockInfoCard .ant-row {
+  margin-bottom: 8px;
+}
+
+.stockInfoCard .ant-row:last-child {
+  margin-bottom: 0;
+}
+
+.batchOperationList {
+  max-height: 300px;
+  overflow-y: auto;
+  border: 1px solid #f0f0f0;
+  border-radius: 6px;
+  padding: 8px;
+}
+
+.batchOperationItem {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  margin-bottom: 8px;
+  background-color: #fafafa;
+  border-radius: 4px;
+  border: 1px solid #f0f0f0;
+}
+
+.batchOperationItem:last-child {
+  margin-bottom: 0;
+}
+
+.inventoryStatistics {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 16px;
+}
+
+.inventoryStatistics .ant-statistic-title {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.inventoryStatistics .ant-statistic-content {
+  color: white;
+}
+
+.stockRecordsTable .ant-table-thead > tr > th {
+  background-color: #fafafa;
+  font-weight: 600;
+}
+
+.stockRecordsTable .ant-tag {
+  margin: 0;
+}
+
+.criticalRow {
+  background-color: #fff2f0 !important;
+}
+
+.warningRow {
+  background-color: #fff7e6 !important;
+}
+
+.criticalRow:hover {
+  background-color: #ffebe6 !important;
+}
+
+.warningRow:hover {
+  background-color: #fff1dc !important;
+}
+
+/* 响应式优化 */
+@media (max-width: 1200px) {
+  .formSection {
+    padding: 20px;
+    margin-bottom: 28px;
+  }
+
+  .sectionTitle {
+    font-size: 15px;
+    margin-bottom: 16px;
+  }
+
+  .suppliesHeader {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .suppliesFilters {
+    justify-content: center;
+  }
+
+  .suppliesActions {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .teamFormContainer {
+    max-height: 60vh;
+    padding: 4px 12px 4px 4px;
+  }
+
+  .formSection {
+    padding: 16px;
+    margin-bottom: 24px;
+  }
+
+  .sectionTitle {
+    font-size: 14px;
+    margin-bottom: 16px;
+  }
+
+  .modalFooter {
+    flex-direction: column;
+    gap: 12px;
+    align-items: stretch;
+  }
+
+  .footerTip {
+    text-align: center;
+    order: 2;
+  }
+
+  .footerButtons {
+    order: 1;
+    justify-content: center;
+  }
+
+  .suppliesFilters {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .suppliesActions {
+    flex-direction: column;
+  }
+
+  .batchOperationItem {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+}
+
+/* 救援队伍选择器样式优化 */
+.rescue-team-option {
+  padding: 8px 12px !important;
+  line-height: 1.2 !important;
+  min-height: 48px !important;
+}
+
+.rescue-team-option:hover {
+  background-color: #f5f5f5 !important;
+}
+
+.rescue-team-option.ant-select-item-option-disabled {
+  background-color: #f9f9f9 !important;
+  opacity: 0.6;
+}
+
+.rescue-team-option.ant-select-item-option-disabled:hover {
+  background-color: #f9f9f9 !important;
+}
+
+/* 确保选择器下拉框的样式 */
+.ant-select-dropdown .rescue-team-option {
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.ant-select-dropdown .rescue-team-option:last-child {
+  border-bottom: none;
+}
+
+/* 选中状态的样式 */
+.rescue-team-option.ant-select-item-option-selected {
+  background-color: #e6f7ff !important;
+  font-weight: normal !important;
+}
+
+.rescue-team-option.ant-select-item-option-selected:hover {
+  background-color: #bae7ff !important;
+}
+
+/* 执行方案弹窗特定样式 */
+.ant-modal .ant-form-item-label {
+  font-weight: 500;
+  color: #333;
+}
+
+.ant-modal .ant-select-selector {
+  border-radius: 6px;
+  border: 1px solid #d9d9d9;
+  transition: all 0.3s ease;
+}
+
+.ant-modal .ant-select-focused .ant-select-selector {
+  border-color: #1890ff;
+  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+}
+
+/* 队伍信息展示区域样式 */
+.ant-modal .ant-alert {
+  border-radius: 6px;
+  border: 1px solid;
+}
+
+.ant-modal .ant-alert-success {
+  background-color: #f6ffed;
+  border-color: #b7eb8f;
+}
+
+.ant-modal .ant-alert-warning {
+  background-color: #fffbe6;
+  border-color: #ffe58f;
+}
+
+/* 救援队伍选择器内部元素对齐优化 */
+.rescue-team-option .ant-tag {
+  vertical-align: middle;
+  margin: 0;
+}
+
+/* 确保下拉选项的文本不会被截断 */
+.ant-select-dropdown .ant-select-item {
+  white-space: normal;
+  word-wrap: break-word;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+}
+
+/* 禁用状态的特殊样式 */
+.rescue-team-option.ant-select-item-option-disabled .ant-tag {
+  opacity: 0.5;
+}
+
+.rescue-team-option.ant-select-item-option-disabled div {
+  color: #999 !important;
+}
+
+/* 参与人员选择器样式优化 */
+.team-member-option {
+  padding: 6px 12px !important;
+  line-height: 1.2 !important;
+  min-height: 36px !important;
+}
+
+.team-member-option:hover {
+  background-color: #f5f5f5 !important;
+}
+
+/* 参与人员选择器下拉框样式 */
+.ant-select-dropdown .team-member-option {
+  border-bottom: 1px solid #f5f5f5;
+}
+
+.ant-select-dropdown .team-member-option:last-child {
+  border-bottom: none;
+}
+
+/* 参与人员选中状态样式 */
+.team-member-option.ant-select-item-option-selected {
+  background-color: #e6f7ff !important;
+  font-weight: normal !important;
+}
+
+.team-member-option.ant-select-item-option-selected:hover {
+  background-color: #bae7ff !important;
+}
+
+/* 参与人员选择器标签样式 */
+.team-member-option .ant-tag {
+  vertical-align: middle;
+  margin: 0;
+}
+
+/* 多选模式下的标签样式优化 */
+.ant-select-multiple .ant-select-selection-item {
+  background-color: #f0f8ff;
+  border: 1px solid #91d5ff;
+  border-radius: 4px;
+  padding: 2px 8px;
+  margin: 2px 4px 2px 0;
+  font-size: 12px;
+  line-height: 18px;
+}
+
+.ant-select-multiple .ant-select-selection-item-remove {
+  color: #1890ff;
+  font-size: 10px;
+  margin-left: 4px;
+}
+
+.ant-select-multiple .ant-select-selection-item-remove:hover {
+  color: #ff4d4f;
+}
