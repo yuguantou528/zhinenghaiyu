@@ -1,21 +1,9 @@
 import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { Card, Typography } from 'antd';
+import DashboardOptimized from './pages/Dashboard/DashboardOptimized';
 
 const { Title } = Typography;
-
-// 简单的测试组件
-const TestDashboard = () => {
-  return (
-    <div style={{ padding: '20px' }}>
-      <Card>
-        <Title level={2}>海域智能安全系统</Title>
-        <p>系统正常运行中...</p>
-        <p>当前时间: {new Date().toLocaleString()}</p>
-      </Card>
-    </div>
-  );
-};
 
 const TestLogin = () => {
   const handleLogin = () => {
@@ -64,13 +52,13 @@ function TestApp() {
       />
       
       {/* 仪表板页面 */}
-      <Route 
-        path="/dashboard" 
+      <Route
+        path="/dashboard"
         element={
           <ProtectedRoute>
-            <TestDashboard />
+            <DashboardOptimized />
           </ProtectedRoute>
-        } 
+        }
       />
     </Routes>
   );
