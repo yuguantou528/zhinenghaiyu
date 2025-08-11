@@ -20,28 +20,9 @@
             height: 100vh;
         }
     </style>
-    <script>
-        // 添加错误监听
-        window.addEventListener('error', function(e) {
-            console.error('页面错误:', e.error);
-            document.body.innerHTML += '<div style="color: red; padding: 20px;">加载错误: ' + e.message + '</div>';
-        });
 
-        // 检查React是否加载
-        window.addEventListener('load', function() {
-            setTimeout(function() {
-                if (!document.getElementById('root').innerHTML) {
-                    document.body.innerHTML += '<div style="color: orange; padding: 20px;">React应用可能未正确加载</div>';
-                }
-            }, 3000);
-        });
-    </script>
 </head>
 <body>
-    <div id="root">
-        <div style="text-align: center; padding: 50px; color: #666;">
-            正在加载应用...
-        </div>
-    </div>
+    <div id="root"></div>
 </body>
 </html>
