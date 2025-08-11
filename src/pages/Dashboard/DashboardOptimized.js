@@ -9,11 +9,6 @@ import {
   Layout, Menu
 } from 'antd';
 
-const { Header, Sider, Content } = Layout;
-const { TextArea, Search } = Input;
-const { Option } = Select;
-const { Text, Title } = Typography;
-
 import {
   UserOutlined,
   TeamOutlined,
@@ -34,6 +29,11 @@ import {
   MenuFoldOutlined,
   MenuUnfoldOutlined
 } from '@ant-design/icons';
+
+const { Header, Sider, Content } = Layout;
+const { TextArea, Search } = Input;
+const { Option } = Select;
+const { Text, Title } = Typography;
 
 // 主要功能组件
 const RealTimeMonitor = () => (

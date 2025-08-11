@@ -1,7 +1,28 @@
 import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { Card, Typography } from 'antd';
-import DashboardOptimized from './pages/Dashboard/DashboardOptimized';
+// import DashboardOptimized from './pages/Dashboard/DashboardOptimized';
+
+// 简单的测试Dashboard
+const SimpleDashboard = () => {
+  return (
+    <div style={{ padding: '20px' }}>
+      <Card>
+        <Title level={2}>海域智能安全系统</Title>
+        <p>系统正常运行中...</p>
+        <p>当前时间: {new Date().toLocaleString()}</p>
+        <div style={{ marginTop: 20 }}>
+          <button onClick={() => {
+            localStorage.removeItem('isLoggedIn');
+            window.location.href = '/login';
+          }} style={{ padding: '10px 20px' }}>
+            退出登录
+          </button>
+        </div>
+      </Card>
+    </div>
+  );
+};
 
 const { Title } = Typography;
 
@@ -56,7 +77,7 @@ function TestApp() {
         path="/dashboard"
         element={
           <ProtectedRoute>
-            <DashboardOptimized />
+            <SimpleDashboard />
           </ProtectedRoute>
         }
       />
