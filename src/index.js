@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import { ConfigProvider } from 'antd';
 import zhCN from 'antd/es/locale/zh_CN';
-import App from './App';
+import App from './App.test';
 import './index.css';
 
 const container = document.getElementById('root');
